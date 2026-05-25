@@ -1,0 +1,27 @@
+SELECT * FROM Animal;
+SELECT * FROM Cliente;
+SELECT * FROM Empregado;
+SELECT * FROM Produto;
+SELECT * FROM Fornecedor;
+SELECT * FROM Raca;
+SELECT * FROM Pet;
+SELECT * FROM Endereco;
+SELECT * FROM Telefone;
+SELECT * FROM Estoque;
+SELECT * FROM Atendimento;
+SELECT * FROM Servico;
+SELECT * FROM Pedido;
+SELECT * FROM Produto_pedido;
+SELECT * FROM Produto_fornecedor;
+SELECT * FROM Atendimento_servico;
+SELECT * FROM Empregado_atendimento;
+
+alter table servico alter column cod_empregado drop not null;
+
+insert into empregado_atendimento (cod_empregado, cod_atendimento, horario_inicio, horario_fim)
+values (3, 1, '09:00:00', '10:00:00')
+
+update servico set nome_responsavel = 'Rodrigo' where cod_telefone = 3;
+
+
+
