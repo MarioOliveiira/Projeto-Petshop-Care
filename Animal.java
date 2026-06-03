@@ -6,12 +6,12 @@ public class Animal {
         this.cod_animal = cod_animal;
     }
 
-    public Animal (String nome){
-        this.nome = nome;
-    }
-
     public int getCod_animal(){
         return cod_animal;
+    }
+
+    public Animal (String nome){
+        this.nome = nome;
     }
 
     public void setNome(String nome){

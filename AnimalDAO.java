@@ -9,7 +9,8 @@ public class AnimalDAO {
     }
     public void inserir (Animal animal){
         String sql;
-        sql = "Insert into Animal (nome)" + " VALUES ('" + animal.getNome() + "')";
+        sql = "INSERT INTO Animal (nome)" +
+                " VALUES ('" + animal.getNome() + "')";
         try {
             banco.stmt.execute(sql);
         } catch (SQLException e){
