@@ -1,7 +1,0 @@
-select * from pet where cod_pet = 4;
-
-ALTER TABLE Pet
-ALTER COLUMN tipo_pelo TYPE VARCHAR(30);
-
-
-

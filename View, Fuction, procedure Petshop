@@ -1,0 +1,90 @@
+select * from produto order by cod_produto
+
+select * from produto_pedido
+
+select * from pet;
+
+select * from estoque
+
+select * from pedido
+
+select * from cliente;
+
+select * from atendimento_servico;
+
+select * from atendimento;
+
+select * from servico;
+	
+ALTER TABLE Produto
+ALTER COLUMN descricao TYPE VARCHAR(255);
+
+ALTER TABLE Pet
+
+ALTER COLUMN tipo_pelo TYPE VARCHAR(30);
+
+alter table pet rename column nome to nome_pet;
+
+alter table cliente rename column nome to nome_cliente;
+
+
+
+SELECT nome_cliente, nome_pet from cliente c
+	inner join pet p
+	on c.cod_cliente = p.cod_cliente;
+	
+select nome_pet, nome_servico, horario_inicio, horario_fim, s.valor_servico from atendimento a
+	inner join pet p 
+	 on p.cod_pet = a.cod_pet
+	 inner join atendimento_servico ats
+	  on ats.cod_atendimento = a.cod_atendimento
+	  inner join servico s
+	   on s.cod_servico = ats.cod_servico;
+
+select nome_produto, nome_cliente, p.valor_total from produto_pedido p
+	inner join produto pd
+ 		on pd.cod_produto = p.cod_produto
+ 	inner join pedido ped
+   on ped.cod_pedido = p.cod_pedido
+   	inner join cliente c
+	   on ped.cod_cliente = c.cod_cliente
+
+create view public.vw_Atendimentos as select nome_cliente, nome_pet, nome_servico, valor_servico 
+	from atendimento a
+		inner join pet p
+			on p.cod_pet = a.cod_pet
+		inner join cliente c
+			on c.cod_cliente = p.cod_cliente
+		inner join atendimento_servico ats
+			on ats.cod_atendimento = a.cod_atendimento
+		inner join servico s
+			on s.cod_servico = ats.cod_servico;
+
+select * from vw_atendimentos
+
+Create function public.func_total_de_vendas()
+	returns numeric
+	language 'sql'
+	as $body$
+		select sum(valor_total) from pedido;
+	$body$;
+
+select func_total_de_vendas();
+
+create or replace procedure public.atualiza_estoque()
+language 'sql'
+as $body$
+update estoque e
+set qtd_disponivel = e.qtd_disponivel - pp.qtd_produto from produto_pedido pp
+															where e.cod_produto = pp.cod_produto
+															and cod_produto_cod_pedido = 1;
+$body$
+ 
+call atualiza_estoque()
+   
+
+	
+
+
+
+
