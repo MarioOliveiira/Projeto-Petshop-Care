@@ -24,7 +24,7 @@ public class TesteCliente {
         ArrayList<Cliente> clientes = clienteDAO.buscar();
         for (Cliente a : clientes){
             System.out.println(a.getCod_cliente() + " - " +
-                    a.getNome() + " - " +
+                    a.getNome_cliente() + " - " +
                     a.getEmail() + " - " +
                     a.getCpf() + " - " +
                     a.getData_cadastro());

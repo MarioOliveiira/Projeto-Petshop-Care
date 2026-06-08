@@ -26,7 +26,7 @@ public class TestePet {
         ArrayList<Pet> pets = petDAO.buscar();
         for (Pet a : pets){
             System.out.println(a.getCod_pet() + " - " +
-                    a.getNome() + " - " +
+                    a.getNome_pet() + " - " +
                     a.getPorte() + " - " +
                     a.getTipo_pelo() + " - " +
                     a.getPeso() + " - " +

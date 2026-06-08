@@ -4,7 +4,6 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class testeConexaoBD {
-
     public static void main(String[] args) {
         ConectaPostgres banco = new ConectaPostgres();
         String driver = "org.postgresql.Driver";

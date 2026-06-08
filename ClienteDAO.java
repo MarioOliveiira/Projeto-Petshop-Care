@@ -11,8 +11,11 @@ public class ClienteDAO {
 
     public void inserir(Cliente cliente) {
         String sql;
-        sql = "INSERT INTO Cliente (nome, cpf, email, data_cadastro)" +
-                " VALUES ('" + cliente.getNome() + "', '" + cliente.getCpf() + "', '" + cliente.getEmail() + "', '" + cliente.getData_cadastro() + "')";
+        sql = "INSERT INTO Cliente (nome_cliente, cpf, email, data_cadastro)" +
+                " VALUES ('" + cliente.getNome_cliente() + "', '" +
+                               cliente.getCpf() + "', '" +
+                               cliente.getEmail() + "', '" +
+                               cliente.getData_cadastro() + "')";
         try {
             banco.stmt.execute(sql);
         } catch (SQLException e) {
@@ -21,20 +24,20 @@ public class ClienteDAO {
     }
     public ArrayList<Cliente> buscar() {
         ArrayList<Cliente> lista = new ArrayList<>();
-        String sql, nome, cpf, email;
+        String sql, nome_cliente, cpf, email;
         LocalDate data_cadastro;
         int cod_cliente;
-        sql = "SELECT * FROM Cliente";
+        sql = "SELECT * FROM Cliente ORDER BY cod_cliente";
 
         try {
             banco.rs = banco.stmt.executeQuery(sql);
             while (banco.rs.next()){
-                nome = banco.rs.getString("nome");
+                nome_cliente = banco.rs.getString("nome_cliente");
                 cpf = banco.rs.getString("cpf");
                 email = banco.rs.getString("email");
                 data_cadastro = banco.rs.getDate("data_cadastro").toLocalDate();
                 cod_cliente = banco.rs.getInt("cod_cliente");
-                Cliente cliente = new Cliente(nome, cpf, email, data_cadastro);
+                Cliente cliente = new Cliente(nome_cliente, cpf, email, data_cadastro);
                 cliente.setCod_cliente(cod_cliente);
                 lista.add(cliente);
             }
@@ -45,7 +48,7 @@ public class ClienteDAO {
     }
     public void atualizar (Cliente cliente){
         String sql;
-        sql = "UPDATE Cliente SET nome = '" + cliente.getNome() +
+        sql = "UPDATE Cliente SET nome_cliente = '" + cliente.getNome_cliente() +
                 "', cpf = '" + cliente.getCpf() +
                 "', email = '" + cliente.getEmail() +
                 "', data_cadastro ='" + cliente.getData_cadastro() +

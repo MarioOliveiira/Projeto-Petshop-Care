@@ -1,6 +1,6 @@
 public class Pet {
     private int cod_pet;
-    private String nome;
+    private String nome_pet;
     private String porte;
     private String tipo_pelo;
     private double peso;
@@ -32,11 +32,11 @@ public class Pet {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nome_pet = nome_pet;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNome_pet() {
+        return nome_pet;
     }
 
     public void setPorte(String porte) {
@@ -63,8 +63,8 @@ public class Pet {
         return peso;
     }
 
-    public Pet (String nome, String porte, String tipo_pelo, double peso, int cod_animal, int cod_cliente){
-        this.nome = nome;
+    public Pet (String nome_pet, String porte, String tipo_pelo, double peso, int cod_animal, int cod_cliente){
+        this.nome_pet = nome_pet;
         this.porte = porte;
         this.tipo_pelo = tipo_pelo;
         this.peso = peso;

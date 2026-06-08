@@ -3,7 +3,7 @@ import java.util.Locale;
 
 public class Cliente {
     private int cod_cliente;
-    private String nome;
+    private String nome_cliente;
     private String cpf;
     private String email;
     private LocalDate data_cadastro;
@@ -17,11 +17,11 @@ public class Cliente {
     }
 
     public void setNome(String nome){
-        this.nome = nome;
+        this.nome_cliente = nome_cliente;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNome_cliente() {
+        return nome_cliente;
     }
 
     public void setCpf(String cpf){
@@ -48,8 +48,8 @@ public class Cliente {
         return data_cadastro;
     }
 
-    public Cliente (String nome, String cpf, String email, LocalDate data_cadastro){
-        this.nome = nome;
+    public Cliente (String nome_cliente, String cpf, String email, LocalDate data_cadastro){
+        this.nome_cliente = nome_cliente;
         this.cpf = cpf;
         this.email = email;
         this.data_cadastro = data_cadastro;

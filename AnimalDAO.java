@@ -20,7 +20,7 @@ public class AnimalDAO {
     public ArrayList<Animal> buscar() {
         ArrayList<Animal> lista = new ArrayList<>();
         String sql, nome;
-        sql = "SELECT * FROM Animal";
+        sql = "SELECT * FROM Animal ORDER BY cod_animal";
 
         try{
             banco.rs = banco.stmt.executeQuery(sql);

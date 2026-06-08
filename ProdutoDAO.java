@@ -27,7 +27,7 @@ public class ProdutoDAO {
         ArrayList<Produto> lista = new ArrayList<>();
         String sql, nome_produto, ean, dun, descricao, marca, categoria;
         int cod_produto;
-        sql = "SELECT * FROM Produto";
+        sql = "SELECT * FROM Produto ORDER BY cod_produto";
 
         try {
             banco.rs = banco.stmt.executeQuery(sql);
